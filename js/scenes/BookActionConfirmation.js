@@ -8,7 +8,7 @@ export default class BookActionConfirmation extends Component {
     return (
       <View style={{flex: 1, justifyContent: 'center' }}>
         <Text>BookActionConfirmation</Text>
-        <MenuItem name='Return home' onForward={this.props.onForward(InitialMenu)} />
+        <MenuItem name='Return home' onForward={this.props.onForward({sceneClass: InitialMenu})} />
       </View>
     );
   }
