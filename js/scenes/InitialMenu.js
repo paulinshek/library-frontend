@@ -8,8 +8,8 @@ export default class InitialMenu extends Component {
   render() {
     return (
       <View style={{flex: 10}}>
-        <OddMenuItem name='Search Book' onForward={this.props.onForward(BookDatabaseView)} />
-        <EvenMenuItem name='Scan Book' onForward={this.props.onForward(Camera)} />
+        <OddMenuItem name='Search Book' onForward={this.props.onForward({sceneClass: BookDatabaseView})} />
+        <EvenMenuItem name='Scan Book' onForward={this.props.onForward({sceneClass: Camera})} />
       </View>
     );
   }

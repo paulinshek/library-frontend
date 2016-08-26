@@ -7,11 +7,6 @@ export default class Camera extends Component {
   constructor(props) {
     super(props);
     this.state = {bookId: ''};
-        console.log(this.props);
-  }
-  onForward() {
-    console.log(this.props);
-    this.props.onForward(BookActionMenu)(this.state);
   }
   render() {
     return (
@@ -19,9 +14,13 @@ export default class Camera extends Component {
         <TextInput
           style={{height: 40}}
           placeholder="Type bookId here!"
-          onChangeText={(bookId) => {this.state.bookId = bookId}}
+          onChangeText={(bookId) => {this.state.bookId =bookId;}}
         />
-        <MenuItem name='Submit' onForward={this.onForward} />
+        <MenuItem name='Submit' onForward={() => {
+          this.props.onForward({
+          sceneClass: BookActionMenu,
+          sceneState: {bookId: this.state.bookId}
+        })();}} />
       </View>
     );
   }

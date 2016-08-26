@@ -13,19 +13,14 @@ class AppNavigator extends Component {
     return (
       <Navigator
         initialRoute={{
-          sceneClass: InitialMenu,
-          sceneState: {}
+          sceneClass: InitialMenu
         }}
         renderScene={(route, navigator) => (
           <View style={{flex: 1}}>
             <Titlebar name={route.sceneClass.name}/>
             {(new route.sceneClass({
-              onForward: (nextScene) => (nextState) => {
-                newRoute = {
-                  sceneClass: nextScene,
-                  sceneState: nextState
-                };
-                navigator.push(newRoute);
+              onForward: (nextRoute) => () => {
+                navigator.push(nextRoute);
               },
               sceneState: route.sceneState
             })).render()}
