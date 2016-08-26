@@ -5,8 +5,8 @@ import {
   Navigator,
   BackAndroid,
   TouchableHighlight } from 'react-native';
-import InitialMenu from './app/scenes/InitialMenu';
-import Titlebar from './app/components/Titlebar';
+import InitialMenu from './js/scenes/InitialMenu';
+import Titlebar from './js/components/Titlebar';
 
 class AppNavigator extends Component {
   render () {
