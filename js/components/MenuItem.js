@@ -4,7 +4,7 @@ import { Text, TouchableHighlight } from 'react-native';
 export default class MenuItem extends Component {
   customiseRender(options) {
     return (
-      <TouchableHighlight onPress={this.props.onForward}
+      <TouchableHighlight onPress={this.props.onPress}
             style={{flex: 1,
               backgroundColor: options.backgroundColor,
               justifyContent: 'center'}}
