@@ -9,7 +9,7 @@ export default class BookDatabaseView extends Component {
     return (
       <View style={{flex: 10}}>
         <BookList />
-        <MenuItem name='Return home' onForward={this.props.onForward({sceneClass: InitialMenu})} />
+        <MenuItem name='Return home' onPress={this.props.onForward({sceneClass: InitialMenu})} />
       </View>
     );
   }

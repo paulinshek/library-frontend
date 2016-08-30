@@ -3,6 +3,8 @@ import { View, TextInput } from 'react-native';
 import BookActionMenu from './BookActionMenu';
 import MenuItem from '../components/MenuItem';
 
+require('dismissKeyboard');
+
 export default class Camera extends Component {
   constructor(props) {
     super(props);
@@ -15,12 +17,15 @@ export default class Camera extends Component {
           style={{height: 40}}
           placeholder="Type bookId here!"
           onChangeText={(bookId) => {this.state.bookId =bookId;}}
+          autoFocus={true}
+          blurOnSubmit={true}
+          onSubmitEditing={() => {
+            this.props.onForward({
+              sceneClass: BookActionMenu,
+              sceneState: {bookId: this.state.bookId}
+            })();
+          }}
         />
-        <MenuItem name='Submit' onForward={() => {
-          this.props.onForward({
-          sceneClass: BookActionMenu,
-          sceneState: {bookId: this.state.bookId}
-        })();}} />
       </View>
     );
   }
